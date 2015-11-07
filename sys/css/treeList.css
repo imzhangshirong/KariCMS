@@ -1,0 +1,68 @@
+.treeList{
+	font-size: 14px;
+	overflow: auto;
+	padding: 0px;
+}
+.treeList ul{
+	list-style: none;
+	padding-left: 15px;
+	line-height: 25px;
+	overflow: hidden;
+}
+.treeList li input{
+	margin-top: 5px;
+	float: left;
+	position: relative;
+	left: 26px;
+}
+.treeList li{
+	overflow: hidden;
+	text-indent: 50px;
+	position: relative;
+	line-height: 25px;
+	margin-left: 10px;
+	background-position: 42px 3px;
+	background-repeat: no-repeat;
+}
+.treeList .dir{
+	background-image: url("../images/dir.png");
+}
+.treeList .img{
+	background-image: url("../images/img.png");
+}
+.treeList .rar{
+	background-image: url("../images/rar.png");
+}
+.treeList .exe{
+	background-image: url("../images/exe.png");
+}
+.treeList .other{
+	background-image: url("../images/other.png");
+}
+.treeList .treeButton{
+	width: 14px;
+	height: 14px;
+	float: left;
+	line-height: 14px;
+	position: absolute;
+	margin-top: 3px;
+	text-indent: 0px;
+	text-align: center;
+	border-radius: 4px;
+	border: 1px solid gray;
+	cursor: pointer;
+	background-color: #fff;
+}
+.treeList .treeButton:hover{
+	color: #fff;
+	background-color: #3498DB;
+	border: 1px solid #fff;
+
+}
+.treeList .hover{background-color: rgba(52,152,219,0.06);cursor: pointer}
+.treeList .select{background-color: rgba(52,152,219,0.15);}
+.treeList .line{width: 1px;
+	height: 100%;
+	position: absolute;
+	background-color: #ddd;
+	left: 32px;}

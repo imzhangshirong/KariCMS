@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script src="{PATH_JS}jquery-1.8.3.min.js"></script>
+</head>
+<body>
+<div style="height:450px;width:400px;float:left;margin-top:40px;margin-left: 35px;">
+	<ul class="list">
+		{mc catid="1" listorder="5" return="data" num="3" page="1"}
+		{php $i=0}
+		{loop $data $r}
+		<li><a href="{$r[url]}">{$r[title]}</a></li>
+
+		{/loop}
+		{/mc}
+	</ul>
+</div>
+<div id="page">{page()}</div>
+</body>
+</html>
