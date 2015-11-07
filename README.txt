@@ -22,3 +22,5 @@ listorder="5" listorder DESC,id DESC
 {mc catid="1" listorder="1" return="data" num="3" page="1"}//page默认=0，如果为"1"则进行分页page()函数可以输出页码和翻页
 
 其他请参考 templates 内文件
+
+http://www.zhangshirong.com/2015/1107/010414.html
