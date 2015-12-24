@@ -71,6 +71,7 @@ VALUES(NULL,'".$catname."','".$catdir."','".$url."','".$template_list."','".$tem
 			updatetime datetime not null,
 			url varchar(150) not null,
 			content mediumtext not null,
+			relation varchar(128) not null,
 			primary key(id)
 		)engine=MyISAM default charset=utf8 auto_increment=1;";
 	$DB_mysql->query($sql);

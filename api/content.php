@@ -19,6 +19,7 @@ $type=@htmlspecialchars($_POST['type'],ENT_QUOTES);
 $label=@htmlspecialchars($_POST['label'],ENT_QUOTES);
 $listorder=@htmlspecialchars($_POST['listorder'],ENT_QUOTES);
 $thumb=@htmlspecialchars($_POST['thumb'],ENT_QUOTES);
+$relation=@htmlspecialchars($_POST['relation'],ENT_QUOTES);
 session_start();
 $username=$_SESSION['username'];
 session_write_close();
@@ -47,7 +48,9 @@ if($method=='insert'){
 		mkdir(PATH_CMS.$savePath);
 	}
 	$urlPage=$savePath.date('His').'.html';
-	$sql="INSERT INTO `".$DB_table."`(`id`,`title`,`type`,`thumb`,`label`,`keywords`,`description`,`listorder`,`username`,`inputtime`,`updatetime`,`url`,`content`) VALUES (NULL,'".$title."','".$type."','".$thumb."','".$label."','".$keywords."','".$desc."','".@$listorder."','".$username."',NOW( ),NOW( ),'".$urlPage."','".$content."');";
+	$sql="INSERT INTO `".$DB_table."`(`id`,`title`,`type`,`thumb`,`label`,`keywords`,`description`,`listorder`,`username`,
+`inputtime`,`updatetime`,`url`,`content`,`relation`) VALUES (NULL,'".$title."','".$type."','".$thumb."','".$label."',
+'".$keywords."','".$desc."','".@$listorder."','".$username."',NOW( ),NOW( ),'".$urlPage."','".$content."','".$relation."');";
 	$DB_mysql->query($sql);
 	$newID=$DB_mysql->getID();
 	$sql="INSERT INTO `cms_hits`(`hitsid`,`hits`) VALUES ('c-".$catid."-".$newID."','0');";
@@ -73,11 +76,12 @@ else if($method=="modify"){
 	$DB_mysql->query($sql);
 	$DB_row=$DB_mysql->result->fetch_assoc ();
 	if($DB_row['title']!=$title || $DB_row['content']!=$content || $DB_row['description']!=$desc ||
-		$DB_row['type']!=$type || $DB_row['label']!=$label || $DB_row['keywords']!=$keywords){
-		$sql="UPDATE `".$DB_table."` SET `title`='".$title."', `type`='".$type."', `label`='".$label."', `thumb`='".$thumb."', `description`='".$desc."', `keywords`='".$keywords."', `listorder`='".$listorder."', `content`='".$content."', `username`='".$username."', `updatetime`= NOW( ) WHERE `id`=".$id;
+		$DB_row['type']!=$type || $DB_row['label']!=$label || $DB_row['keywords']!=$keywords ||
+		$DB_row['relation']!=$relation){
+		$sql="UPDATE `".$DB_table."` SET `title`='".$title."', `type`='".$type."', `label`='".$label."', `thumb`='".$thumb."', `description`='".$desc."', `keywords`='".$keywords."', `listorder`='".$listorder."', `content`='".$content."', `relation`='".$relation."', `username`='".$username."', `updatetime`= NOW( ) WHERE `id`=".$id;
 	}
 	else{
-		$sql="UPDATE `".$DB_table."` SET `title`='".$title."', `type`='".$type."', `label`='".$label."', `thumb`='".$thumb."', `description`='".$desc."', `keywords`='".$keywords."', `listorder`='".$listorder."', `content`='".$content."', `username`='".$username."' WHERE `id`=".$id;
+		$sql="UPDATE `".$DB_table."` SET `title`='".$title."', `type`='".$type."', `label`='".$label."', `thumb`='".$thumb."', `description`='".$desc."', `keywords`='".$keywords."', `listorder`='".$listorder."', `content`='".$content."', `relation`='".$relation."', `username`='".$username."' WHERE `id`=".$id;
 	}
 
 	$DB_mysql->query($sql);
