@@ -43,6 +43,7 @@ else if($method=='modify'){
 	$listorder=$DB_row['listorder'];
 	$content=$DB_row['content'];
 	$url=$DB_row['url'];
+	$thumb=$DB_row['thumb'];
 }
 else{
 	$jsonArr=array(
@@ -53,13 +54,51 @@ else{
 	die($jsonData);
 }
 ?>
-<div class="cms_page" style="width:1000px;" id="content">
-	<p><label>文章标题：</label><input id="title" style="width: 200px" value="<?=$title?>"><label>类型：</label><input id="type" style="width: 60px" value="<?=$type?>"><label>标签：</label><input id="label" style="width: 120px" value="<?=$label?>"><label>关键词：</label><input id="keywords"  value="<?=$keywords?>"><label>排序：</label><input id="listorder" style="width: 80px"  value="<?=$listorder?>"></p>
-	<p><label>描述：</label></p><textarea style="width: 99.5%;height: 50px;margin-bottom:10px" id="desc"><?=$desc?></textarea>
-	<script id="editor" type="text/plain" style="width:1000px;height:260px;"></script>
-	<div id="data" style="display: none"><?=$content?></div>
-	<p><button onclick="saveData()" class="modify">保存</button></p>
-</div>
+<div style="width:100%;overflow: auto;height: 86%;padding:20px 0px">
+	<div class="cms_page" style="width:1000px;" id="content">
+		<img id="thumb" width="160px" height="120px" style="float: left;display: block" src="<?=$thumb?>">
+		<form id="uploadimg" style="float: left;display: block;margin-left: 20px;margin-bottom: 10px">
+			<p><label>文章图片：</label><input name="upfile" type="file" style="height: 24px;line-height: 24px;width:
+			300px"></p>
+		</form>
+		<script>
+			function uploadImg(){
+				$('#upload').html("正在上传");
+				$('#upmsg').html("正在上传图片...");
+				$('#upload').css("background-color","#666666");
+				$('#upload').attr('disabled','true');
+				doUpload('#uploadimg',function(e){
+					var json=JSON.parse(e);
+					var url=json.url;
+					if(url){
+						$('#upmsg').html("上传图片成功");
+						url=url.replace(/\\/, "");
+						console.log(url);
+						$('#thumb').attr('src',url);
+						$('#thumb').attr('data',url);
+					}
+					else{
+						$('#upmsg').html("上传图片失败，请重试");
+					}
+					$('#upload').html("重新上传");
+					$('#upload').css("background-color","#4285F4");
+					$('#upload').removeAttr('disabled');
+
+				});
+			}
+		</script>
+		<button onclick="uploadImg()" class="upload" id="upload" style="margin: 1px 0px;
+		">上传图片</button><span id="upmsg" style="margin-left: 20px;line-height: 30px"></span>
+		<div style="float: left;margin-left: 20px"><p style="margin-bottom: 10px"><label>文章标题：</label><input id="title" style="width: 300px" value="<?=$title?>"><label>类型：</label><input id="type" style="width: 80px" value="<?=$type?>"><label>标签：</label><input id="label" style="width: 120px" value="<?=$label?>"></p>
+			<p><label>关键字词：</label><input id="keywords"  value="<?=$keywords?>" style="width: 300px"><label>排序：</label><input id="listorder" style="width: 80px"  value="<?=$listorder?>"></p>
+		</div>
+
+		<p style="margin-top: 10px"><label>描述：</label></p><textarea style="width: 99.5%;height: 50px;margin-bottom:10px" id="desc"><?=$desc?></textarea>
+		<script id="editor" type="text/plain" style="width:1000px;height:260px;"></script>
+		<div id="data" style="display: none"><?=$content?></div>
+		<p style="margin: 10px"><button onclick="saveData()" class="modify">保存</button></p>
+	</div>
+	</div>
 <script type="text/javascript">
 	//实例化编辑器
 	//建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
@@ -82,7 +121,8 @@ else{
 		var desc=document.getElementById("desc").value;
 		var listorder=document.getElementById("listorder").value;
 		var content=ue.getContent();
-		var data={title:title,type:type,label:label,keywords:keywords,desc:desc,content:content,username:'test',listorder:listorder};
+		var thumbPic=$('#thumb').attr('data');
+		var data={title:title,type:type,label:label,keywords:keywords,desc:desc,content:content,username:'test',listorder:listorder,thumb:thumbPic};
 		if(method=="modify"){
 			api=api+'&id='+id;
 			apiPage=apiPage+'&id='+id;

@@ -265,6 +265,8 @@ function codeReplacePHP($match,$match_orig){
 				if($mcdata['listorder']=="3")$temp="listorder DESC";
 				if($mcdata['listorder']=="4")$temp="listorder ASC,id ASC";
 				if($mcdata['listorder']=="5")$temp="listorder DESC,id DESC";
+				if($mcdata['listorder']=="6")$temp="listorder DESC,updatetime ASC";
+				if($mcdata['listorder']=="7")$temp="listorder DESC,updatetime DESC";
 				$sql.=" ORDER BY ".$temp;
 			}
 			if(isset($mcdata['num'])){
