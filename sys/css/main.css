@@ -28,7 +28,7 @@ a{text-decoration: none}
 
 
 #upshadow{width: 100%;height: 100%;position: fixed;z-index: 100;background-color: rgba(0,0,0,0.6);display: none}
-#up_container{border-radius: 2px;width: 1100px;height: 600px;position: relative;margin-top: -300px;top:50%;background-color: #fff;overflow:hidden}
+#up_container{border-radius: 2px;width: 1100px;height: 600px;position: relative;margin-top: -300px;top:50%;background-color: #fff;overflow: auto}
 
 table{line-height: 30px;border: none}
 table th{color: #555;line-height: 30px;border-bottom: 1px solid #eee}
@@ -45,8 +45,6 @@ table .select{background-color: rgba(52,152,219,0.2)}
 .add:hover{box-shadow: 0px 0px 5px #29A25E}
 .modify{background-color: #4285F4}
 .modify:hover{box-shadow: 0px 0px 5px #4285F4}
-.upload{background-color: #4285F4}
-.upload:hover{box-shadow: 0px 0px 5px #4285F4}
 .del{background-color: #D9534F}
 .del:hover{box-shadow: 0px 0px 5px #D9534F}
 .cms_page label{float: left;display: block;line-height: inherit;}

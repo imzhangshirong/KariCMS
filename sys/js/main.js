@@ -29,7 +29,7 @@ function upOpen(msg,size,url,headline,closeFunc){//可视化操作过程,提示�
 			type:'get',
 			success:function(data){
 				//console.log(data);
-				$('#up_container').html("<p style='font-size: 18px;line-height: 20px;font-weight: 300;width: 100%;padding:10px;float: left;background-color: #3498DB;color:#fff'>"+headline+"<a href='javascript:upClose("+closeFunc+")' style='float: right;display: block;margin-right: 30px;font-weight: 700;color: #fff;font-size: 20px'>X</a></p>"+data);
+				$('#up_container').html("<p style='font-size: 18px;line-height: 20px;font-weight: 300;width: 100%;margin: 10px 10px 20px 10px;float: left;font-weight: 700'>"+headline+"<a href='javascript:upClose("+closeFunc+")' style='float: right;display: block;margin-right: 30px;font-weight: 700;color: #D9534F;font-size: 20px'>X</a></p>"+data);
 			}
 		});
 	}
@@ -54,24 +54,6 @@ function linkAPI(url,type,data,complete){//api提交过程，后台静默完成
 				alert(data);
 			}
 			upClose(complete);
-		}
-	});
-}
-function doUpload(id,callBack) {
-	var formData = new FormData($(id)[0]);
-	$.ajax({
-		url: 'sys/ueditor/php/controller.php?action=uploadfile' ,
-		type: 'POST',
-		data: formData,
-		async: false,
-		cache: false,
-		contentType: false,
-		processData: false,
-		success: function (returndata) {
-			callBack(returndata);
-		},
-		error: function (returndata) {
-			callBack(returndata);
 		}
 	});
 }
