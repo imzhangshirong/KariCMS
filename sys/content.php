@@ -44,7 +44,10 @@ else if($method=='modify'){
 	$content=$DB_row['content'];
 	$url=$DB_row['url'];
 	$thumb=$DB_row['thumb'];
+<<<<<<< HEAD
 	$relation=$DB_row['relation'];
+=======
+>>>>>>> parent of 746edef... Revert "Alpha 1.0.0.5"
 }
 else{
 	$jsonArr=array(
@@ -57,7 +60,11 @@ else{
 ?>
 <div style="width:100%;overflow: auto;height: 86%;padding:20px 0px">
 	<div class="cms_page" style="width:1000px;" id="content">
+<<<<<<< HEAD
 		<img id="thumb" width="160px" height="120px" style="float: left;display: block" src="<?=$thumb?>" data="<?=$thumb?>">
+=======
+		<img id="thumb" width="160px" height="120px" style="float: left;display: block" src="<?=$thumb?>">
+>>>>>>> parent of 746edef... Revert "Alpha 1.0.0.5"
 		<form id="uploadimg" style="float: left;display: block;margin-left: 20px;margin-bottom: 10px">
 			<p><label>文章图片：</label><input name="upfile" type="file" style="height: 24px;line-height: 24px;width:
 			300px"></p>
@@ -90,8 +97,13 @@ else{
 		</script>
 		<button onclick="uploadImg()" class="upload" id="upload" style="margin: 1px 0px;
 		">上传图片</button><span id="upmsg" style="margin-left: 20px;line-height: 30px"></span>
+<<<<<<< HEAD
 		<div style="float: left;margin-left: 20px"><p style="margin-bottom: 10px"><label>文章标题：</label><input id="title" style="width: 300px" value="<?=$title?>"><label>类型：</label><input id="type" style="width: 80px" value="<?=$type?>"><label>标签：</label><input id="label" style="width: 200px" value="<?=$label?>"></p>
 			<p><label>关键字词：</label><input id="keywords"  value="<?=$keywords?>" style="width: 300px"><label>排序：</label><input id="listorder" style="width: 80px"  value="<?=$listorder?>"><label>跳转：</label><input id="relation" style="width: 200px" value="<?=$relation?>"></p>
+=======
+		<div style="float: left;margin-left: 20px"><p style="margin-bottom: 10px"><label>文章标题：</label><input id="title" style="width: 300px" value="<?=$title?>"><label>类型：</label><input id="type" style="width: 80px" value="<?=$type?>"><label>标签：</label><input id="label" style="width: 120px" value="<?=$label?>"></p>
+			<p><label>关键字词：</label><input id="keywords"  value="<?=$keywords?>" style="width: 300px"><label>排序：</label><input id="listorder" style="width: 80px"  value="<?=$listorder?>"></p>
+>>>>>>> parent of 746edef... Revert "Alpha 1.0.0.5"
 		</div>
 
 		<p style="margin-top: 10px"><label>描述：</label></p><textarea style="width: 99.5%;height: 50px;margin-bottom:10px" id="desc"><?=$desc?></textarea>
@@ -122,9 +134,14 @@ else{
 		var desc=document.getElementById("desc").value;
 		var listorder=document.getElementById("listorder").value;
 		var content=ue.getContent();
+<<<<<<< HEAD
 		var thumbPic=document.getElementById("thumb").getAttribute('data');
 		var relation=document.getElementById("relation").value;
 		var data={title:title,type:type,label:label,keywords:keywords,desc:desc,content:content,username:'test',listorder:listorder,thumb:thumbPic,relation:relation};
+=======
+		var thumbPic=$('#thumb').attr('data');
+		var data={title:title,type:type,label:label,keywords:keywords,desc:desc,content:content,username:'test',listorder:listorder,thumb:thumbPic};
+>>>>>>> parent of 746edef... Revert "Alpha 1.0.0.5"
 		if(method=="modify"){
 			api=api+'&id='+id;
 			apiPage=apiPage+'&id='+id;

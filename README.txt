@@ -18,6 +18,8 @@ listorder="2" listorder ASC
 listorder="3" listorder DESC
 listorder="4" listorder ASC,id ASC
 listorder="5" listorder DESC,id DESC
+listorder="6" listorder DESC,updatetime ASC
+listorder="7" listorder DESC,updatetime DESC
 
 {mc catid="1" listorder="1" return="data" num="3" page="1"}//page默认=0，如果为"1"则进行分页page()函数可以输出页码和翻页
 

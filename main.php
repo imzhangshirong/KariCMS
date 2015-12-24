@@ -11,7 +11,7 @@ if(!$_SESSION['username']){
 	<meta charset="utf-8">
 	<meta name="viewport" content="height=768,initial-scale=1.0,minimum-scale=1.0,user-scalable=yes" />
 	<title>后台管理 - KariCMS</title>
-	<script src="./sys/js/jquery-1.11.3.min.js"></script>
+	<script src="./sys/js/jquery.min.js"></script>
 	<script src="./sys/js/TweenMax.min.js"></script>
 	<script type="text/javascript" charset="utf-8" src="./sys/ueditor/ueditor.config.js"></script>
 	<script type="text/javascript" charset="utf-8" src="./sys/ueditor/ueditor.all.min.js"> </script>
